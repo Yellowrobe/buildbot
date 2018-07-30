@@ -127,7 +127,8 @@ class HTTPStep(BuildStep):
             log.addHeader('Data:\n')
             if isinstance(data, dict):
                 for k, v in iteritems(data):
-                    log.addHeader('\t%s: %s\n' % (k, v))
+                    if k is not "Key":
+                        log.addHeader('\t%s: %s\n' % (k, v))
             else:
                 log.addHeader('\t%s\n' % data)
 
